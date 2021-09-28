@@ -14,7 +14,9 @@ There are three types of tools available here. The roles and details of each too
 > We have prepared Node-Red as a development environment with docker. You can read the ".json" file converted by CNT in this environment. Our Node-RED is equipped with SoxFire, which is used for developing smart city systems. We recommend that you use our Node-RED to run the sample program. You can get the general Node-Red from this URL (https://www.npmjs.com/package/node-red).  
   
 * M-Sec_DemoTool
-> To demonstrate the effectiveness of this research, the M-Sec project has created a demonstration system. As a demonstration system, we designed a video release system. By using Node-RED to send video to this demo system via http request, the sent video will be displayed. Since there are two types of video destinations (user types), Node-RED can guarantee privacy requirements that vary depending on the user.  
+> To demonstrate the effectiveness of this research, the M-Sec project has created a demonstration system. As a demonstration system, we designed a video release system. By using Node-RED to send video to this demo system via http request, the sent video will be displayed. Since there are two types of video destinations (user types), Node-RED can guarantee privacy requirements that vary depending on the user. 
+
+![Demo System : Video Release System](./figures/VideoReleaseSystem.png "VideoReleaseSystem")
   
 In addition, the discrete controller synthesis tool "MTSA" is required for development using this tool.
 MTSA can be obtained from this URL (https://mtsa.dc.uba.ar/).
