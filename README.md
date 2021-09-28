@@ -32,10 +32,10 @@ Initially, the designer designs the environment model and the safety requirement
 By invoking MTSA, you can get the Controller script as shown in the following figure.
 ![Controller](./figures/Controller.png "MTSA output (CNT Input)")
   
-Next, enter this Contorller script and the dictionary data shown in the following figure into CNT.
+Next, enter this Contorller script and the dictionary data shown in the following figure into CNT. This dictionary data is a script that describes which node the controller event represents in Node-RED.
 ![DictionaryData](./figures/DictionaryData.png "DictionaryData(CNT Input)")
   
-From these two inputs, you can get the flow data (in json format). Once the flow data has been loaded into Node-RED, the entire task is complete. You can get the flow as shown in the following figure.
+From these two inputs, you can get the flow data (in json format). CNT then uses the controller and dictionary data to automatically generate a Node-RED program that is guaranteed to be safe. By loading this Node-RED program in Node-RED, we can achieve a Node-RED system with guaranteed safety requirements. Once the flow data has been loaded into Node-RED, the entire task is complete. And you can get the flow as shown in the following figure.
 ![Output](./figures/Output.png "CNT Output")
   
   
