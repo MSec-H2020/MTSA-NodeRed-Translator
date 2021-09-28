@@ -16,7 +16,7 @@ There are three types of tools available here. The roles and details of each too
 * M-Sec_DemoTool
 > To demonstrate the effectiveness of this research, the M-Sec project has created a demonstration system. As a demonstration system, we designed a video release system. By using Node-RED to send video to this demo system via http request, the sent video will be displayed. Since there are two types of video destinations (user types), Node-RED can guarantee privacy requirements that vary depending on the user. 
 
-![Demo System : Video Release System](./figures/VideoReleaseSystem.png "VideoReleaseSystem")
+![Demo System : Video Release System](./figures/VideoReleaseSystem.png "Video release system")
   
 In addition, the discrete controller synthesis tool "MTSA" is required for development using this tool.
 MTSA can be obtained from this URL (https://mtsa.dc.uba.ar/).
@@ -24,5 +24,10 @@ MTSA can be obtained from this URL (https://mtsa.dc.uba.ar/).
 
 ## How to use
 
+![ProposalMethod](./figures/ProposalMethod.png "Proposal development method")
+![Input](./figures/Input.png "MTSA input")
+![Controller](./figures/Controller.png "MTSA output (CNT Input)")
+![DictionaryData](./figures/DictionaryData.png "DictionaryData(CNT Input)")
+![Output](./figures/Output.png "CNT Output")
 
 Detailed instructions for each tool can be found in the README of each folder (each tool).
