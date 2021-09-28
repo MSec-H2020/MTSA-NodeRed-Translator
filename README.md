@@ -23,11 +23,20 @@ MTSA can be obtained from this URL (https://mtsa.dc.uba.ar/).
   
 
 ## How to use
-
+In this research, we propose a method for developing Node- RED systems using discrete controller synthesis (DCS), as shown in the following figure, to resolve the issues of safety assurance and update effort in conventional Node-RED.
 ![ProposalMethod](./figures/ProposalMethod.png "Proposal development method")
+  
+Initially, the designer designs the environment model and the safety requirements, and then the environment models and the safety requirements are designed by FSP and FLTL, respectively. The actual data to be entered will be a script like the following.
 ![Input](./figures/Input.png "MTSA input")
+  
+By invoking MTSA, you can get the Controller script as shown in the following figure.
 ![Controller](./figures/Controller.png "MTSA output (CNT Input)")
+  
+Next, enter this Contorller script and the dictionary data shown in the following figure into CNT.
 ![DictionaryData](./figures/DictionaryData.png "DictionaryData(CNT Input)")
+  
+From these two inputs, you can get the flow data (in json format). Once the flow data has been loaded into Node-RED, the entire task is complete. You can get the flow as shown in the following figure.
 ![Output](./figures/Output.png "CNT Output")
-
+  
+  
 Detailed instructions for each tool can be found in the README of each folder (each tool).
