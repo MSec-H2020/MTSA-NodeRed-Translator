@@ -4,6 +4,8 @@
 We present a controller to Node-RED translator (CNT), a tool for developing Node-RED systems that are safe and easy to update continuously. CNT introduces the discrete controller synthesis to conventional Node-RED systems to provide a guarantee of ﬂow correctness (safety). Flow correctness, which essentially means that the nodes fire at the timing intended by the designer, is crucial in smart city systems that require frequent application updates with no room for design errors. In this work, we propose a method for developing a Node-RED system using CNT along with its accompanying algorithm. We also report the results of experiments that demonstrate the usefulness of the proposed method.  
   
 
+  
+
 ## Configuration
 There are three types of tools available here. The roles and details of each tool are shown below.  
   
@@ -21,6 +23,8 @@ There are three types of tools available here. The roles and details of each too
 In addition, the discrete controller synthesis tool "MTSA" is required for development using this tool.
 MTSA can be obtained from this URL (https://mtsa.dc.uba.ar/).
   
+
+
 
 ## How to use
 In this research, we propose a method for developing Node- RED systems using discrete controller synthesis (DCS), as shown in the following figure, to resolve the issues of safety assurance and update effort in conventional Node-RED.
