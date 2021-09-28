@@ -1,0 +1,828 @@
+[
+{
+"id": "flow_name",
+"type": "tab",
+"label": "Converted Controller",
+"disabled": false
+},
+{
+"id": "d7c69937.890c58",
+"type": "switch",
+"z": "flow_name",
+"name": "Q0: check request",
+"property": "action",
+"propertyType": "flow",
+"rules": [
+{
+"t": "eq",
+"v": "user",
+"vt": "str"
+},
+{
+"t": "eq",
+"v": "admin",
+"vt": "str"
+}
+],
+"checkall": "true",
+"repair": false,
+"outputs": 2,
+"x": 700,
+"y": 275,
+"wires": [
+[
+"342b1056.cf70c"
+],
+[
+"c48098d5.eb0628"
+]
+]
+},
+{
+"id": "342b1056.cf70c",
+"type": "function",
+"z": "flow_name",
+"name": "Q1",
+"func": "flow.set(\"State\", \"Q1\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 350,
+"wires": [
+[
+"6b958d2f.39bae4"
+]
+]
+},
+{
+"id": "6b958d2f.39bae4",
+"type": "function",
+"z": "flow_name",
+"name": "getLiveData_set",
+"func": "msg.payload = \"getLiveData\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 1400,
+"y": 350,
+"wires": [
+[
+"9883498e.e37318"
+]
+]
+},
+{
+"id": "9883498e.e37318",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 350,
+"wires": [
+[
+"dcdc845f.b79618"
+]
+]
+},
+{
+"id": "dcdc845f.b79618",
+"type": "function",
+"z": "flow_name",
+"name": "getLiveData",
+"func": "msg.payload = global.get(\"data\");\nreturn msg",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 1900,
+"y": 350,
+"wires": [
+[
+"f073cf68.67cd7"
+]
+]
+},
+{
+"id": "f073cf68.67cd7",
+"type": "change",
+"z": "flow_name",
+"name": "backup",
+"rules": [
+{
+"t": "set",
+"p": "backup",
+"pt": "flow",
+"to": "payload",
+"tot": "msg"
+}
+],
+"reg": false,
+"x": 2100,
+"y": 350,
+"wires": [
+[
+"279ea5e.aaf415a"
+]
+]
+},
+{
+"id": "279ea5e.aaf415a",
+"type": "function",
+"z": "flow_name",
+"name": "Q2",
+"func": "flow.set(\"State\", \"Q2\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 400,
+"wires": [
+[
+"9709baca.70c438"
+]
+]
+},
+{
+"id": "9709baca.70c438",
+"type": "function",
+"z": "flow_name",
+"name": "convert_format_set",
+"func": "msg.payload = \"convert_format\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 400,
+"wires": [
+[
+"8d937e32.3934f"
+]
+]
+},
+{
+"id": "8d937e32.3934f",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 400,
+"wires": [
+[
+"ebb4c1e2.705c2"
+]
+]
+},
+{
+"id": "ebb4c1e2.705c2",
+"type": "function",
+"z": "flow_name",
+"name": "convert_format",
+"func": "msg.headers = { \n    \"Content-type\" : \"application/json\"\n} \n\nmsg.payload = \"{\\\"image\\\": \\\"${\" + msg.payload + \"}\\\"}\"\n\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 1900,
+"y": 400,
+"wires": [
+[
+"75770627.2b9ea8"
+]
+]
+},
+{
+"id": "75770627.2b9ea8",
+"type": "change",
+"z": "flow_name",
+"name": "backup",
+"rules": [
+{
+"t": "set",
+"p": "backup",
+"pt": "flow",
+"to": "payload",
+"tot": "msg"
+}
+],
+"reg": false,
+"x": 2100,
+"y": 400,
+"wires": [
+[
+"f9ce04ce.214ad8"
+]
+]
+},
+{
+"id": "f9ce04ce.214ad8",
+"type": "function",
+"z": "flow_name",
+"name": "Q3",
+"func": "flow.set(\"State\", \"Q3\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 450,
+"wires": [
+[
+"9d23a023.98a5b"
+]
+]
+},
+{
+"id": "9d23a023.98a5b",
+"type": "function",
+"z": "flow_name",
+"name": "blur_set",
+"func": "msg.payload = \"blur\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 450,
+"wires": [
+[
+"c2b4654c.f13378"
+]
+]
+},
+{
+"id": "c2b4654c.f13378",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 450,
+"wires": [
+[
+"765c1454.21a16c"
+]
+]
+},
+{
+"id": "765c1454.21a16c",
+"type": "http request",
+"z": "flow_name",
+"name": "blur",
+"method": "POST",
+"ret": "txt",
+"paytoqs": "query",
+"url": "https://notus.ht.sfc.keio.ac.jp/image",
+"tls": "",
+"persist": true,
+"proxy": "",
+"authType": "basic",
+"x": 1900,
+"y": 450,
+"wires": [
+[
+"5fd3963.2426e68"
+]
+]
+},
+{
+"id": "5fd3963.2426e68",
+"type": "change",
+"z": "flow_name",
+"name": "backup",
+"rules": [
+{
+"t": "set",
+"p": "backup",
+"pt": "flow",
+"to": "payload",
+"tot": "msg"
+}
+],
+"reg": false,
+"x": 2100,
+"y": 450,
+"wires": [
+[
+"f559a70d.fc0e28"
+]
+]
+},
+{
+"id": "f559a70d.fc0e28",
+"type": "function",
+"z": "flow_name",
+"name": "Q4",
+"func": "flow.set(\"State\", \"Q4\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 500,
+"wires": [
+[
+"635b3328.9c4f0c"
+]
+]
+},
+{
+"id": "635b3328.9c4f0c",
+"type": "function",
+"z": "flow_name",
+"name": "revert_format_set",
+"func": "msg.payload = \"revert_format\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 500,
+"wires": [
+[
+"2e09d370.e80eac"
+]
+]
+},
+{
+"id": "2e09d370.e80eac",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 500,
+"wires": [
+[
+"139058be.71ac37"
+]
+]
+},
+{
+"id": "139058be.71ac37",
+"type": "function",
+"z": "flow_name",
+"name": "revert_format",
+"func": "\n\nmsg.payload = msg.payload.substr(13);\nmsg.payload = msg.payload.replace(\"\\\"\", \"\"); \n\n//[\\\"]\n\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 1900,
+"y": 500,
+"wires": [
+[
+"86bf0d76.c671d"
+]
+]
+},
+{
+"id": "86bf0d76.c671d",
+"type": "change",
+"z": "flow_name",
+"name": "backup",
+"rules": [
+{
+"t": "set",
+"p": "backup",
+"pt": "flow",
+"to": "payload",
+"tot": "msg"
+}
+],
+"reg": false,
+"x": 2100,
+"y": 500,
+"wires": [
+[
+"5c0f6792.e4e268"
+]
+]
+},
+{
+"id": "5c0f6792.e4e268",
+"type": "function",
+"z": "flow_name",
+"name": "Q5",
+"func": "flow.set(\"State\", \"Q5\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 550,
+"wires": [
+[
+"59876107.1545f"
+]
+]
+},
+{
+"id": "59876107.1545f",
+"type": "function",
+"z": "flow_name",
+"name": "http_out_user_set",
+"func": "msg.payload = \"http_out_user\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 550,
+"wires": [
+[
+"de1527b7.5c32b8"
+]
+]
+},
+{
+"id": "de1527b7.5c32b8",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 550,
+"wires": [
+[
+"c40b1d.1a8034e"
+]
+]
+},
+{
+"id": "c48098d5.eb0628",
+"type": "function",
+"z": "flow_name",
+"name": "Q6",
+"func": "flow.set(\"State\", \"Q6\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 600,
+"wires": [
+[
+"acbcd79e.5a0cf8"
+]
+]
+},
+{
+"id": "acbcd79e.5a0cf8",
+"type": "function",
+"z": "flow_name",
+"name": "getLiveData_set",
+"func": "msg.payload = \"getLiveData\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 600,
+"wires": [
+[
+"bf12d9ae.9e32c8"
+]
+]
+},
+{
+"id": "bf12d9ae.9e32c8",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 600,
+"wires": [
+[
+"61b868e4.cb25e8"
+]
+]
+},
+{
+"id": "61b868e4.cb25e8",
+"type": "function",
+"z": "flow_name",
+"name": "getLiveData",
+"func": "msg.payload = global.get(\"data\");\nreturn msg",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 1900,
+"y": 600,
+"wires": [
+[
+"436b5f3c.3f971"
+]
+]
+},
+{
+"id": "436b5f3c.3f971",
+"type": "change",
+"z": "flow_name",
+"name": "backup",
+"rules": [
+{
+"t": "set",
+"p": "backup",
+"pt": "flow",
+"to": "payload",
+"tot": "msg"
+}
+],
+"reg": false,
+"x": 2100,
+"y": 600,
+"wires": [
+[
+"56f2cae8.ece5c4"
+]
+]
+},
+{
+"id": "56f2cae8.ece5c4",
+"type": "function",
+"z": "flow_name",
+"name": "Q7",
+"func": "flow.set(\"State\", \"Q7\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 650,
+"wires": [
+[
+"d112e989.45da18"
+]
+]
+},
+{
+"id": "d112e989.45da18",
+"type": "function",
+"z": "flow_name",
+"name": "not_blur_set",
+"func": "msg.payload = \"not_blur\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 650,
+"wires": [
+[
+"587971c5.4826a"
+]
+]
+},
+{
+"id": "587971c5.4826a",
+"type": "function",
+"z": "flow_name",
+"name": "Q8",
+"func": "flow.set(\"State\", \"Q8\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 700,
+"y": 700,
+"wires": [
+[
+"d3f0ffd.70dc7"
+]
+]
+},
+{
+"id": "d3f0ffd.70dc7",
+"type": "function",
+"z": "flow_name",
+"name": "http_out_admin_set",
+"func": "msg.payload = \"http_out_admin\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
+"outputs": 1,
+"noerr": 0,
+"x": 1400,
+"y": 700,
+"wires": [
+[
+"14b5ce84.d27e61"
+]
+]
+},
+{
+"id": "14b5ce84.d27e61",
+"type": "change",
+"z": "flow_name",
+"name": "load",
+"rules": [
+{
+"t": "set",
+"p": "payload",
+"pt": "msg",
+"to": "backup",
+"tot": "flow"
+}
+],
+"reg": false,
+"x": 1700,
+"y": 700,
+"wires": [
+[
+"47d3e8bb.676708"
+]
+]
+},
+{
+"id": "c40b1d.1a8034e",
+"type": "http response",
+"z": "flow_name",
+"name": "response_request",
+"statusCode": "",
+"headers": {},
+"x": 1910,
+"y": 550,
+"wires": []
+},
+{
+"id": "47d3e8bb.676708",
+"type": "http response",
+"z": "flow_name",
+"name": "response_request",
+"statusCode": "",
+"headers": {},
+"x": 1910,
+"y": 700,
+"wires": []
+},
+{
+"id": "9a47b44.835fc48",
+"type": "http in",
+"z": "flow_name",
+"name": "get_request",
+"url": "/admin",
+"method": "get",
+"upload": false,
+"swaggerDoc": "",
+"x": 510,
+"y": 100,
+"wires": [
+[
+"31037654.a0bf7a"
+]
+]
+},
+{
+"id": "31037654.a0bf7a",
+"type": "change",
+"z": "flow_name",
+"name": "set_flow_action",
+"rules": [
+{
+"t": "set",
+"p": "action",
+"pt": "flow",
+"to": "admin",
+"tot": "str"
+}
+],
+"reg": false,
+"x": 700,
+"y": 100,
+"wires": [
+[
+"3b193b5c.d59d44"
+]
+]
+},
+{
+"id": "a7654f3f.dd579",
+"type": "http in",
+"z": "flow_name",
+"name": "get_request",
+"url": "/user",
+"method": "get",
+"upload": false,
+"swaggerDoc": "",
+"x": 510,
+"y": 140,
+"wires": [
+[
+"ddfb938.65b6c7"
+]
+]
+},
+{
+"id": "ddfb938.65b6c7",
+"type": "change",
+"z": "flow_name",
+"name": "set_flow_action",
+"rules": [
+{
+"t": "set",
+"p": "action",
+"pt": "flow",
+"to": "user",
+"tot": "str"
+}
+],
+"reg": false,
+"x": 700,
+"y": 140,
+"wires": [
+[
+"3b193b5c.d59d44"
+]
+]
+},
+{
+"id": "af581c1f.33c67",
+"type": "Subscribe",
+"z": "flow_name",
+"name": "Subscribe Device",
+"action": "deploy",
+"device": "testNode1",
+"transducer": "",
+"login": "3f8af5d.53ac50a",
+"x": 190,
+"y": 100,
+"wires": [
+[
+"5acc0d37.77cdd4"
+]
+]
+},
+{
+"id": "5acc0d37.77cdd4",
+"type": "function",
+"z": "flow_name",
+"name": "",
+"func": "global.set(\"data\", msg.payload[2][\"rawValue\"])",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 200,
+"y": 160,
+"wires": [
+[]
+]
+},
+{
+"id": "3b193b5c.d59d44",
+"type": "function",
+"z": "flow_name",
+"name": "Q0",
+"func": "flow.set(\"State\", \"Q0\");\n msg.payload = flow.get(\"State\");\n return msg;",
+"outputs": 1,
+"noerr": 0,
+"initialize": "",
+"finalize": "",
+"x": 703,
+"y": 217,
+"wires": [
+[
+"d7c69937.890c58"
+]
+]
+},
+{
+"id": "3f8af5d.53ac50a",
+"type": "sox-credentials",
+"nickname": "Sample",
+"bosh": "http://ssm-soxfire.ht.sfc.keio.ac.jp:5280/http-bind/",
+"xmpp": "ssm-soxfire.ht.sfc.keio.ac.jp"
+}
+]

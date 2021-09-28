@@ -1,0 +1,16 @@
+Process:
+	Controller
+States:
+	9
+Transitions:
+	Controller = Q0,
+	Q0	= (http_in.user -> Q1
+		  |http_in.admin -> Q6),
+	Q1	= (getLiveData -> Q2),
+	Q2	= (convert_format -> Q3),
+	Q3	= (blur -> Q4),
+	Q4	= (revert_format -> Q5),
+	Q5	= (http_out.user -> Q0),
+	Q6	= (getLiveData -> Q7),
+	Q7	= (not_blur -> Q8),
+	Q8	= (http_out.admin -> Q0).
